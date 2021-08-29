@@ -114,7 +114,7 @@ struct _signal_slot_node *_disconnect(struct _signal_slot_node *, struct _signal
  * @brief 发射一个信号
  * 
  * @param name 需要发射的信号名称
- * @param ... 该信号所携带的参数
+ * @param ... 需要发送的数据
  */
 #define EMIT(name, ...) \
     name(&name##_head, ##__VA_ARGS__)
@@ -123,7 +123,7 @@ struct _signal_slot_node *_disconnect(struct _signal_slot_node *, struct _signal
  * @brief 在槽函数中判断是谁发送的信号
  * 
  * @param name 需要判断的信号名称
- * @return 如果是name发射的信号
+ * @return 如果是name发射的信号返回非0，否则返回0
  */
 #define IS_SENDER(name) \
     (sender == &name##_head)
